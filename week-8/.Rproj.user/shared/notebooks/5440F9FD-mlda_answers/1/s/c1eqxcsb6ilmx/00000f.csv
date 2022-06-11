@@ -1,2 +1,0 @@
-"0","ggplot(deaths_filtered, aes(x = year, y = mrate, color = state_name)) +"
-"0","  geom_line()"

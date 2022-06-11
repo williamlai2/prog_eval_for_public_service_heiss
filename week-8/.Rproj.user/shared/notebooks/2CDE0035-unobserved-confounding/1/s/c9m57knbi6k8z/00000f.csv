@@ -1,8 +1,0 @@
-"0","school_ate_averages <- school_iptw %>% "
-"0","  mutate(math12_z = scale(math12)) %>% "
-"0","  group_by(catholic) %>% "
-"0","  summarize(avg = mean(math12),  # Unadjusted naive difference"
-"0","            avg_wtd = weighted.mean(math12, w = iptw),  # Adjusted difference"
-"0","            avg_z = mean(math12_z),  # Unadjusted naive difference, z-scores"
-"0","            avg_wtd_z = weighted.mean(math12_z, iptw))  # Adjusted difference, z-scores"
-"0","school_ate_averages"

@@ -1,4 +1,0 @@
-"0","# TODO: Use lm() to calculate the diff-in-diff effect with this model:"
-"0","model_diff_diff <- lm(Rate ~ is_california + After + (is_california * After), "
-"0","                      data = organ_ca_nj)"
-"0","tidy(model_diff_diff)"

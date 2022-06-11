@@ -1,5 +1,0 @@
-"0",""
-"0","# See the overall average and standard deviation"
-"0","school_data_scaled %>% "
-"0","  summarize(avg = mean(math12),"
-"0","            sd = sd(math12))"

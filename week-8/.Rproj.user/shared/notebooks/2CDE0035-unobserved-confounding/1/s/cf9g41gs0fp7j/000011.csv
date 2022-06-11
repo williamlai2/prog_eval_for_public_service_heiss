@@ -1,5 +1,0 @@
-"0",""
-"0","ggplot(school_data_scaled, aes(x = math12_z, fill = catholic_f)) +"
-"0","  geom_density(alpha = 0.5) +"
-"0","  geom_vline(data = math_averages_scaled, "
-"0","             aes(xintercept = avg_z, color = catholic_f))"

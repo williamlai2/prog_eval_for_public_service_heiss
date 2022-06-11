@@ -1,7 +1,0 @@
-"0","basic_predictions <- augment(model_basic, penguins)"
-"0",""
-"0","ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +"
-"0","  geom_point(aes(color = species)) +"
-"0","  geom_smooth(data = basic_predictions, aes(y = .fitted, color = species))"
-"2","`geom_smooth()` using method = 'loess' and formula 'y ~ x'
-"

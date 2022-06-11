@@ -1,3 +1,0 @@
-"0","model_some_controls <- lm(malaria_risk ~ net + income + health,"
-"0","                          data = nets)"
-"0","glance(model_some_controls)"

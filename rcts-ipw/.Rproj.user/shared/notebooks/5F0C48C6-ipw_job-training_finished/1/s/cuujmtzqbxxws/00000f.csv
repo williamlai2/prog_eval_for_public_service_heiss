@@ -1,3 +1,0 @@
-"0","lalonde %>% "
-"0","  group_by(treat) %>% "
-"0","  summarize(avg_income = mean(re78))"

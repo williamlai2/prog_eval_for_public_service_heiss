@@ -1,5 +1,0 @@
-"0","al_ar <- deaths %>% "
-"0","  filter(state_name %in% c(""Alabama"", ""Arkansas"")) %>% "
-"0","  mutate(after_change = year >= 1975,"
-"0","         is_alabama = state_name == ""Alabama"") %>% "
-"0","  filter(year <= 1983, agegr == ""18-20 yrs"", dtype == ""all"")"

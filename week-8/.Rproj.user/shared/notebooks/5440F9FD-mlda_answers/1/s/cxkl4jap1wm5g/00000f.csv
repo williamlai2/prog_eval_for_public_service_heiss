@@ -1,2 +1,0 @@
-"0","ggplot(al_ar, aes(x = year, y = mrate, color = state_name)) +"
-"0","  geom_line()"

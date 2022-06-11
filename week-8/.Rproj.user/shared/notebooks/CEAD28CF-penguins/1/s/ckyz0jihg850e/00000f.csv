@@ -1,4 +1,0 @@
-"0","model_basic <- lm(body_mass_g ~ flipper_length_mm + species,"
-"0","                  data = penguins)"
-"0",""
-"0","tidy(model_basic)"

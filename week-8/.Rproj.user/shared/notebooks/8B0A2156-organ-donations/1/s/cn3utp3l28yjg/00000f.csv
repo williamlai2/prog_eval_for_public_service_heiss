@@ -1,3 +1,0 @@
-"0","# TODO: Create a new dataset based on `organ_donations_raw` "
-"0","# TODO: Make a new column called `After` that is TRUE (or 1) if the quarter is Q32011, Q42011, or Q12012 (or if Quarter_num is 4, 5, or 6)"
-"0","# TODO: Make a new column called `Treated` that is TRUE (or 1) if the state is California and After is TRUE/1"

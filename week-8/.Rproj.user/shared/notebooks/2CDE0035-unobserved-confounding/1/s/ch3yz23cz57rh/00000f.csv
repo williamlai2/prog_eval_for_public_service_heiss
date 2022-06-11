@@ -1,6 +1,0 @@
-"0","school_data_scaled <- school_data %>% "
-"0","  mutate(math12_z = scale(math12))"
-"0",""
-"0","school_data_scaled %>% "
-"0","  select(math12, math12_z) %>%"
-"0","  head()"

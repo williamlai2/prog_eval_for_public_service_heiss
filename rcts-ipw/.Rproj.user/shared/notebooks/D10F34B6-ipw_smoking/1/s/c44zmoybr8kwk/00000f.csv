@@ -1,4 +1,0 @@
-"0","# TODO: Create a model that predicts quitting smoking (qsmk) based on all the"
-"0","# confounders. For fun, try accounting for nonlinearities in age,"
-"0","# smokeintensity, smokeyrs, and wt71 too (hint: include a term like I(age^2) in"
-"0","# addition to age)"

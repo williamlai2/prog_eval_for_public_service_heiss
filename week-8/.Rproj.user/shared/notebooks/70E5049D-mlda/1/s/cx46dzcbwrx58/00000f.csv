@@ -1,4 +1,0 @@
-"0","# TODO: Make a new dataset based on `deaths` that only contains Alabama and Arkansas"
-"0","# TODO: Make a new column called `after_change` that is TRUE (or 1) if year >= 1975"
-"0","# TODO: Make a new column called `is_alabama` that is TRUE (or 1) if the state is Alabama"
-"0","# TODO: Filter the data so that it (1) only includes years <= 1983, (2) only includes the 18-20 age group (agegr), and (3) includes only the death type (dtype) of ""all"""

@@ -1,3 +1,0 @@
-"0","lalonde_wts <- augment(treatment_model, lalonde, type.predict = ""response"") %>% "
-"0","  rename(propensity = .fitted) %>% "
-"0","  mutate(ipw = (treat / propensity) + ((1 - treat) / (1 - propensity)))"

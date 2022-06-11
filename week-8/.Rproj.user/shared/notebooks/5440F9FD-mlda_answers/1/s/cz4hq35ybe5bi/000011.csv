@@ -1,6 +1,0 @@
-"0",""
-"0","model_fe <- feols(mrate ~ legal | state_name + year,"
-"0","                  cluster = ~ state_name,"
-"0","                  data = deaths_filtered,"
-"0","                  ssc = ssc(fixef.K = ""full""))"
-"0","tidy(model_fe)"

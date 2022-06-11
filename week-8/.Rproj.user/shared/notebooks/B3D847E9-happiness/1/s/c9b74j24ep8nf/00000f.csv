@@ -1,4 +1,0 @@
-"0","model_life_school_la_int <- lm(happiness_score ~ life_expectancy + latin_america +"
-"0","                                 life_expectancy * latin_america, "
-"0","                               data = world_happiness)"
-"0","tidy(model_life_school_la_int)"

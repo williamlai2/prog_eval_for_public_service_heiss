@@ -1,2 +1,0 @@
-"0","model_net_naive <- lm(malaria_risk ~ net, data = nets_scaled)"
-"0","tidy(model_net_naive)"

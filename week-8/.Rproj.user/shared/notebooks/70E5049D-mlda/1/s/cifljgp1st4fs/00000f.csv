@@ -1,5 +1,0 @@
-"0","fips <- fips_codes %>% "
-"0","  mutate(state_code = as.numeric(state_code)) %>% "
-"0","  group_by(state_code) %>% "
-"0","  slice(1) %>% "
-"0","  select(-county, -county_code)"

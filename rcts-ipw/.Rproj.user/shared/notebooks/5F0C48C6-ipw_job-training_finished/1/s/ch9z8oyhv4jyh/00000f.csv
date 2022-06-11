@@ -1,2 +1,0 @@
-"0","ggplot(lalonde, aes(x = re78, fill = factor(treat))) +"
-"0","  geom_density(alpha = 0.5)"

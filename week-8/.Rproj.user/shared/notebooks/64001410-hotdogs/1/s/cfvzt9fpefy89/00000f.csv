@@ -1,3 +1,0 @@
-"0","tidy(model) %>% "
-"0","  select(term, estimate) %>% "
-"0","  mutate(estimate = round(estimate, 2))"

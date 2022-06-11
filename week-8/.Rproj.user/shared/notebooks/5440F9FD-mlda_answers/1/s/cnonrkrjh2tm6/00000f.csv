@@ -1,3 +1,0 @@
-"0","model2 <- lm(mrate ~ legal + state_name + factor(year) + state_name:year, "
-"0","             data = deaths_filtered)"
-"0","tidy(model2)"

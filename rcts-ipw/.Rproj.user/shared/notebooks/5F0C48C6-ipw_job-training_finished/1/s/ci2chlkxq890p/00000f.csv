@@ -1,5 +1,0 @@
-"0","treatment_model <- glm(treat ~ age + educ + race + married +"
-"0","                         nodegree + re74 + re75,"
-"0","                       data = lalonde,"
-"0","                       family = binomial(link = ""logit""))"
-"0","tidy(treatment_model)"

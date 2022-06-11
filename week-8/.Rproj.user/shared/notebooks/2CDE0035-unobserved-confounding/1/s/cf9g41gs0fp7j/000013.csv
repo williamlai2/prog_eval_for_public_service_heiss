@@ -1,3 +1,0 @@
-"0",""
-"0","model_math_naive_z <- lm(math12_z ~ catholic_f, data = school_data_scaled)"
-"0","tidy(model_math_naive_z)"
