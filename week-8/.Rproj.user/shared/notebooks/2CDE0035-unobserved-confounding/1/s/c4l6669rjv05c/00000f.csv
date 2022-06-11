@@ -1,0 +1,2 @@
+"0","model_math_naive <- lm(math12 ~ catholic_f, data = school_data)"
+"0","tidy(model_math_naive)"

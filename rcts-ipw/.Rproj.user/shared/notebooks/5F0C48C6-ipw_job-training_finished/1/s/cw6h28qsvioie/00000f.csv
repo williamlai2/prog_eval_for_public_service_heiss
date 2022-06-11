@@ -1,0 +1,2 @@
+"0","model_naive <- lm(re78 ~ treat, data = lalonde)"
+"0","tidy(model_naive, conf.int = TRUE)"

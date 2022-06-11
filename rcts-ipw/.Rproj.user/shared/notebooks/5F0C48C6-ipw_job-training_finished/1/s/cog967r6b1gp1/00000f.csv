@@ -1,0 +1,2 @@
+"0","outcome_model <- lm(re78 ~ treat, data = lalonde_wts, weights = ipw)"
+"0","tidy(outcome_model, conf.int = TRUE)"

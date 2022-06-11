@@ -1,0 +1,8 @@
+"0",""
+"0","model2_fe <- feols(mrate ~ legal + i(state_name, factor(year)) | state_name + year,"
+"0","                   cluster = ~ state_name,"
+"0","                   data = deaths_filtered,"
+"0","                   ssc = ssc(fixef.K = ""full""))"
+"2","Variables 'state_name::Alaska:factor(year)::1983', 'state_name::Arizona:factor(year)::1983' and 62 others have been removed because of collinearity (see $collin.var).
+"
+"0","tidy(model2)"

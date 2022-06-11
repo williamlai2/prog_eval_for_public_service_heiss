@@ -1,0 +1,38 @@
+"0","library(brms)"
+"2","Loading required package: Rcpp
+"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"2","Loading 'brms' package (version 2.17.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+"
+"2","
+Attaching package: ‘brms’
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    ar
+
+"
+"0","library(broom.mixed)"
+"0","library(tidybayes)"
+"2","
+Attaching package: ‘tidybayes’
+
+"
+"2","The following objects are masked from ‘package:brms’:
+
+    dstudent_t, pstudent_t, qstudent_t, rstudent_t
+
+"
+"0","outcome_bayes <- brm("
+"0","  bf(re78 | weights(ipw) ~ treat),"
+"0","  data = lalonde_wts,"
+"0","  cores = 4"
+"0",")"
+"2","Compiling Stan program...
+"

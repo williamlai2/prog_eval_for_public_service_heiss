@@ -1,0 +1,5 @@
+"0","# TODO: Use lm() to estimate the effect of quitting smoking (qsmk) on weight"
+"0","# gain (wt82_71) and incorporate the inverse probability weights. How much"
+"0","# weight gain does quitting smoking *cause*?"
+"0","#"
+"0","# TODO: Is this effect significant? Interpret the confidence interval."

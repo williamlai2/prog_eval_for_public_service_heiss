@@ -1,0 +1,3 @@
+"0",""
+"0","model_net_naive_z <- lm(malaria_risk_z ~ net, data = nets_scaled)"
+"0","tidy(model_net_naive_z)"

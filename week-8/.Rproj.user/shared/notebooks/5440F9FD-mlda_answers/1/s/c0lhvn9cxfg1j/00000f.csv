@@ -1,0 +1,3 @@
+"0","deaths <- deaths_raw %>% "
+"0","  mutate(state = as.numeric(state)) %>% "
+"0","  left_join(fips, by = c(""state"" = ""state_code""))"

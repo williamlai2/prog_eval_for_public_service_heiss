@@ -1,0 +1,15 @@
+"0","library(tipr)"
+"2","Warning:"
+"2"," package ‘tipr’ was built under R version 4.1.3
+"
+"0","tidy(model_net_ate, conf.int = TRUE) %>% "
+"0","  filter(term == ""netTRUE"") %>% "
+"0","  lm_tip(outcome_association = 5)"
+"2","Warning:"
+"2"," 'lm_tip' is deprecated.
+Use 'tip_lm' instead.
+See help(""Deprecated"")
+"
+"2","Error in tip_coef(effect, smd, outcome_association, verbose) : 
+  argument ""smd"" is missing, with no default
+"

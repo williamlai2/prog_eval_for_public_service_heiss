@@ -1,0 +1,3 @@
+"0",""
+"0","outcome_draws %>% "
+"0","  summarize(prob_gt_0 = sum(.value > 0) / n())"

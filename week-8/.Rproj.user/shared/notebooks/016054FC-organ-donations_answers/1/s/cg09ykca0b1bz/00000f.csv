@@ -1,0 +1,8 @@
+"0","# TODO: Make a dataset based on `organ_donations` that only contains California and New Jersey"
+"0","# TODO: Make a new column called `After` that is TRUE (or 1) if the quarter is Q32011, Q42011, or Q12012 (or if Quarter_num is 4, 5, or 6)"
+"0","# TODO: Make a new column called `is_california` that is TRUE (or 1) if the state is California"
+"0",""
+"0","organ_ca_nj <- organ_donations_raw %>% "
+"0","  filter(State %in% c(""California"", ""New Jersey"")) %>% "
+"0","  mutate(After = Quarter %in% c(""Q32011"", ""Q42011"", ""Q12012""),"
+"0","         is_california = State == ""California"")"

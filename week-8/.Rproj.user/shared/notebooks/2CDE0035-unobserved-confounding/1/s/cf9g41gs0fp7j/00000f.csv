@@ -1,0 +1,4 @@
+"0","math_averages_scaled <- school_data_scaled %>% "
+"0","  group_by(catholic_f) %>% "
+"0","  summarize(avg_z = mean(math12_z))"
+"0","math_averages_scaled"

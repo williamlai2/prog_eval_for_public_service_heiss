@@ -1,0 +1,1 @@
+"0","lalonde_wts %>% summarize(avg_wt = mean(ipw))"

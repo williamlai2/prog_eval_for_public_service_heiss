@@ -1,0 +1,4 @@
+"0","# TODO: Use that new data to create a TWFE model like this:"
+"0","model_twfe <- lm(Rate ~ Treated + State + Quarter, "
+"0","                 data = organ)"
+"0","tidy(model_twfe)"

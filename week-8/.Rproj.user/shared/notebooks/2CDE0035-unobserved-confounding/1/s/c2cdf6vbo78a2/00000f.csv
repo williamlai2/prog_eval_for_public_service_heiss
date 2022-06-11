@@ -1,0 +1,17 @@
+"0","library(tidyverse)   # ggplot(), %>%, mutate(), and friends"
+"0","library(ggdag)       # Make DAGs"
+"2","
+Attaching package: ‘ggdag’
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    filter
+
+"
+"0","library(dagitty)     # Do DAG logic with R"
+"0","library(haven)       # Load data from Stata files"
+"0","library(broom)       # Convert models to data frames"
+"0","library(patchwork)   # Combine ggplot plots"
+"0",""
+"0","set.seed(1234)   # Make all random draws reproducible"

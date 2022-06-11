@@ -1,0 +1,8 @@
+"0","net_ate_averages <- net_iptw %>% "
+"0","  mutate(malaria_risk_z = scale(malaria_risk)) %>% "
+"0","  group_by(net) %>% "
+"0","  summarize(avg = mean(malaria_risk),  # Unadjusted naive difference"
+"0","            avg_wtd = weighted.mean(malaria_risk, w = iptw),  # Adjusted difference"
+"0","            avg_z = mean(malaria_risk_z),  # Unadjusted naive difference, z-scores"
+"0","            avg_wtd_z = weighted.mean(malaria_risk_z, iptw))  # Adjusted difference, z-scores"
+"0","net_ate_averages"

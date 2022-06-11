@@ -1,0 +1,2 @@
+"0","ggplot(school_data, aes(x = math12, fill = catholic_f)) +"
+"0","  geom_density(alpha = 0.5)"

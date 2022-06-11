@@ -1,0 +1,2 @@
+"0","ggplot(lalonde_wts, aes(x = ipw)) +"
+"0","  geom_density(fill = ""darkred"")"

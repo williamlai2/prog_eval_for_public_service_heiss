@@ -1,0 +1,31 @@
+"0","library(tidyverse)"
+"0","library(broom)"
+"0","library(scales)  # For things like percent()"
+"2","
+Attaching package: ‘scales’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    discard
+
+"
+"2","The following object is masked from ‘package:readr’:
+
+    col_factor
+
+"
+"0","results <- read_csv(""data/math_survey.csv"") %>% "
+"0","  mutate(anxious_num = recode(math_anxiety, Yes = 1, No = 0)) %>% "
+"0","  mutate(treatment = fct_relevel(treatment, ""Normal story""))"
+"1","[1m[1mRows: [1m[22m[34m[34m216[34m[39m [1m[1mColumns: [1m[22m[34m[34m11[34m[39m
+"
+"1","[36m--[39m [1m[1mColumn specification[1m[22m [36m-----------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (9): timestamp, teacher, treatment, math_feeling, good_at_math, math_easy_hard, math_stressed, survey_stressed, math_anxiety
+[32mdbl[39m (2): wave, id_in_class
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"

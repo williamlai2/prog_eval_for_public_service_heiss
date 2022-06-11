@@ -1,0 +1,8 @@
+"0","library(tidyverse)"
+"0","library(broom)"
+"0","library(ggdag)"
+"0",""
+"0","# TODO: Use read_csv() to load data/nhefs.csv"
+"0",""
+"0","# TODO: Use read_csv() to load data/nhefs_codebook.csv (so you can know what the"
+"0","# different columns are actually measuring)"

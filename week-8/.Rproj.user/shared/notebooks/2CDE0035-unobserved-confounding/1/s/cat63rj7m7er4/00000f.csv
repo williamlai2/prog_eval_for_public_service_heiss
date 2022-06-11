@@ -1,0 +1,2 @@
+"0","math_averages_scaled %>% "
+"0","  mutate(avg_rescaled = (avg_z * math_sigma) + math_mu)"

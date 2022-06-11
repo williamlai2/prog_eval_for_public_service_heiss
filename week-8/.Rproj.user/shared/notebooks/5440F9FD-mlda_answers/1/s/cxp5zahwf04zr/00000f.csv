@@ -1,0 +1,4 @@
+"0","model_al_ar <- lm(mrate ~ after_change + is_alabama + "
+"0","                    (after_change * is_alabama),"
+"0","                  data = al_ar)"
+"0","tidy(model_al_ar)"

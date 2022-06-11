@@ -1,0 +1,4 @@
+"0","math_averages <- school_data %>% "
+"0","  group_by(catholic_f) %>% "
+"0","  summarize(avg = mean(math12))"
+"0","math_averages"

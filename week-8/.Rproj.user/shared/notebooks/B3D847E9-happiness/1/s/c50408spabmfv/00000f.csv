@@ -1,0 +1,8 @@
+"0","ggplot(world_happiness, aes(x = life_expectancy, y = happiness_score)) +"
+"0","  geom_point(aes(color = latin_america)) +"
+"0","  geom_abline(slope = 0.1023494, intercept = -2.0770858, color = ""blue"", size = 2) +"
+"0","  geom_abline(slope = 0.1023494, intercept = -2.0770858 + 0.6234255, "
+"0","              color = ""orange"", size = 2)"
+"2","Warning:"
+"2"," Removed 62 rows containing missing values (geom_point).
+"

@@ -1,0 +1,2 @@
+"0","deaths_filtered <- deaths %>% "
+"0","  filter(year <= 1983, agegr == ""18-20 yrs"", dtype == ""all"")"
