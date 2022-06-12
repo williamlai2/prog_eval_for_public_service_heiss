@@ -23,10 +23,18 @@ library(broom)
 library(ggdag)
 
 # TODO: Use read_csv() to load data/nhefs.csv
+df <- read_csv("data/nhefs.csv")
 
 # TODO: Use read_csv() to load data/nhefs_codebook.csv (so you can know what the
 # different columns are actually measuring)
+codebook <- read_csv("data/nhefs_codebook.csv")
 ```
+
+```{r}
+summary(df)
+head(df)
+```
+
 
 **Causal variables**:
 
@@ -56,16 +64,25 @@ Is there a visual difference?
 ```{r}
 # TODO: Make a density plot of wt82_71 that is filled by factor(qsmk) (so that
 # the 0/1 is treated as a categorical variable)
+ggplot(df, aes(x = wt82_71, fill = factor(qsmk))) +
+  geom_density(alpha = 0.5)
 ```
 
 ```{r}
 # TODO: Use group_by() and summarize() to find the average weight gain among
 # smokers and nonsmokers
+df %>% 
+  group_by(qsmk) %>% 
+  summarise(wt82_71 = mean(wt82_71))
 ```
+
+Higher weight for those who quit smoking (2.54kg)
 
 ```{r}
 # TODO: Use lm() to calculate a naive estimate of the "effect" of quitting
 # smoking on weight gain
+model_naive <- lm(wt82_71 ~ factor(qsmk), data = df)
+summary(model_naive)
 ```
 
 
@@ -95,11 +112,22 @@ ggdag_status(smk_wt_dag)
 # confounders. For fun, try accounting for nonlinearities in age,
 # smokeintensity, smokeyrs, and wt71 too (hint: include a term like I(age^2) in
 # addition to age)
+treatment_model <- glm(factor(qsmk) ~ age + I(age^2) + sex + race + education + 
+    smokeintensity + smokeyrs + exercise + active + wt71,
+                       data = df,
+                       family = binomial(link = "logit"))
+
+tidy(treatment_model) # log odds
+tidy(treatment_model, exponentiate = TRUE) # odds ratio
 ```
 
 
 
 ## Propensity scores and weights
+
+Inverse probability weighting relies on building a logistic regression model to estimate the probability of the exposure observed for a particular person, and using the predicted probability as a weight in subsequent analyses.
+
+The IPW isnt't interpretable, but it is a  measure who 'weird' the observation is (as on based on the what would have been actual v predicted). Use the adjustments as weights in a regression (later). What is left is a causal effect.
 
 ```{r}
 # TODO: Plug the original dataset into the model using augment() and generate
@@ -111,19 +139,27 @@ ggdag_status(smk_wt_dag)
 # 
 # It should look something like this:
 # mutate(ipw = (qsmk / propensity) + ((1 - qsmk) / (1 - propensity)))
+df_wts <- augment(treatment_model, df, type.predict = "response") %>% 
+  rename(propensity = .fitted) %>% 
+  mutate(ipw = (qsmk / propensity) + ((1 - qsmk) / (1 - propensity)))
 ```
 
 Investigate your weights. They should be clustered around 1 (with an average of 1), without any huge values.
 
 ```{r}
 # Visualize the distribution of weights. 
+ggplot(df_wts, aes(x = ipw)) +
+  geom_density(fill = "darkred")
 ```
 
 ```{r}
 # Calculate the average of your weights. It should be around 1
+mean(df_wts$ipw)
 ```
 
 ## Outcome model
+
+Uses the IPW as a weight. What is left is a causal effect.
 
 ```{r}
 # TODO: Use lm() to estimate the effect of quitting smoking (qsmk) on weight
@@ -131,6 +167,8 @@ Investigate your weights. They should be clustered around 1 (with an average of 
 # weight gain does quitting smoking *cause*?
 #
 # TODO: Is this effect significant? Interpret the confidence interval.
+outcome_model <- lm(wt82_71 ~ factor(qsmk), data = df_wts, weights = ipw)
+tidy(outcome_model, conf.int = TRUE)
 ```
 
 ```{r}
@@ -141,4 +179,27 @@ Investigate your weights. They should be clustered around 1 (with an average of 
 #
 # brm(bf(outcome | weights(ipw) ~ treatment), 
 #     data = whatever)
+library(brms)
+library(broom.mixed)
+library(tidybayes)
+
+outcome_bayes <- brm(
+  bf(wt82_71 | weights(ipw) ~ factor(qsmk)),
+  data = df_wts,
+  cores = 4
+)
+
+tidy(outcome_bayes)
+
+get_variables(outcome_bayes)
+
+outcome_draws <- outcome_bayes %>% 
+  gather_draws(b_factorqsmk1)
+
+ggplot(outcome_draws, aes(x = .value)) +
+  stat_halfeye() +
+  geom_vline(xintercept = 0)
+
+outcome_draws %>% 
+  summarise(prob_gt_0 = sum(.value > 0) / n())
 ```

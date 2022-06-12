@@ -23,6 +23,7 @@ library(tidyverse)
 library(broom)
 
 # TODO: Use read_csv() to load data/oregon.csv
+df_raw <- read_csv("data/oregon.csv")
 ```
 
 
@@ -35,6 +36,11 @@ There are two categorical columns in this dataset. It will make it easier to cal
 
 ```{r}
 # TODO: Add two new columns with numeric versions of treatment and outcome
+df <- df_raw %>% 
+  mutate(treatment_num = if_else(treatment == "Treated", 1, 0),
+         outcome_num = if_else(owe_medical_12 == "Owe Money", 1, 0))
+
+summary(df)
 ```
 
 
@@ -44,19 +50,50 @@ There are two categorical columns in this dataset. It will make it easier to cal
 # TODO: Use group_by() and summarize() (or just count()) to calculate the number
 # of people in the treatment and control groups who do and don't have medical
 # debt. Is there a difference?
+df %>% 
+  group_by(treatment_num) %>% 
+  count(outcome_num) %>% 
+  mutate(propn = n/sum(n))
 ```
 
 ```{r}
 # TODO: Use lm() to calculate the exact difference in the proportion of people
 # with medical debt across the treatment and control groups. Is the difference
 # significant?
+model_naive <- lm(outcome_num ~ treatment_num, data = df)
+summary(model_naive)
 ```
 
 ```{r}
 # TODO: For bonus fun, try to visualize the difference in proportions
+ggplot(df, aes(x = outcome_num, fill = factor(treatment_num))) +
+  geom_density(alpha = 0.5)
 ```
 
 ```{r}
 # TODO: For extra super bonus fun, run a Bayesian outcome model with the brms
 # package so that you can talk about credible intervals
+library(brms)
+library(tidybayes)
+
+model_bayes <- brm(
+  bf(outcome_num ~ treatment_num),
+  data = df,
+  cores = 4,
+)
 ```
+
+```{r}
+get_variables(model_bayes)
+
+model_draws <- model_bayes %>% 
+  gather_draws(c(b_treatment_num)) 
+
+ggplot(model_draws, aes(x = .value, y = .variable)) +
+  stat_halfeye()
+
+model_draws %>% 
+  filter(.variable == "b_treat_pay") %>% 
+  summarize(prop_gt_0 = sum(.value > 0) / n())
+```
+
